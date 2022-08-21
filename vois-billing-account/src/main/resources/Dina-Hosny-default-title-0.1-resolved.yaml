@@ -1,0 +1,99 @@
+---
+openapi: 3.0.1
+info:
+  title: VoisBillingAccountApplication.java
+  description: Billing Account Microservice project using Java programming language
+  version: "0.1"
+servers:
+- url: http://localhost:8080
+paths:
+  /vois/internship-program/v1/1/subscribers:
+    get:
+      description: Auto generated using Swagger Inspector
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                "0":
+                  value: '[{"id":1,"fullName":"Dina Hosny","userName":"v21","password":"string","phoneNumber":"0111","ban":"1"},{"id":2,"fullName":"Dina Hosny","userName":"v22","password":"string","phoneNumber":"01131","ban":"1"},{"id":3,"fullName":"Dina Hosny","userName":"v23","password":"string","phoneNumber":"0221131","ban":"1"},{"id":4,"fullName":"Dina Hosny","userName":"Di_Ho","password":"string","phoneNumber":"010heartheart","ban":"1"}]'
+      servers:
+      - url: http://localhost:8080
+    servers:
+    - url: http://localhost:8080
+  /vois/internship-program/v1/subscriber:
+    post:
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1_subscriber_body'
+            examples:
+              "0":
+                value: "{\r\n  \"ban\": \"1\",\r\n  \"fullName\": \"Dina Hosny\",\r\n  \"password\": \"passw0rd\",\r\n  \"phoneNumber\": \"010151617\",\r\n  \"userName\": \"Dina_Hossny\"\r\n}"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+              examples:
+                "0":
+                  value: '{"id":5,"fullName":"Dina Hosny","userName":"Dina_Hossny","password":"passw0rd","phoneNumber":"010151617","ban":"1"}'
+      servers:
+      - url: http://localhost:8080
+    servers:
+    - url: http://localhost:8080
+  /vois/internship-program/v1/1.1:
+    get:
+      description: Auto generated using Swagger Inspector
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+              examples:
+                "0":
+                  value: '{"id":1,"fullName":"Dina Hosny","userName":"v21","password":"string","phoneNumber":"0111","ban":"1"}'
+      servers:
+      - url: http://localhost:8080
+    servers:
+    - url: http://localhost:8080
+components:
+  schemas:
+    v1_subscriber_body:
+      type: object
+      properties:
+        password:
+          type: string
+        phoneNumber:
+          type: string
+        fullName:
+          type: string
+        userName:
+          type: string
+        ban:
+          type: string
+    inline_response_200:
+      type: object
+      properties:
+        password:
+          type: string
+        phoneNumber:
+          type: string
+        fullName:
+          type: string
+        id:
+          type: integer
+        userName:
+          type: string
+        ban:
+          type: string
