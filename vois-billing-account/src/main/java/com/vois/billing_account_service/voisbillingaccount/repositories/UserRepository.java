@@ -19,10 +19,7 @@ public interface UserRepository extends JpaRepository<User,String> {
 
 
     @Query("select u from User u where u.UserName = ?1")
-    static Optional<User> findItemByUsername(String UserName) {
-        return null;
-    }
-
+    Optional<User> findItemByUsername(String UserName);
 
     @Query("select u from User u where u.PhoneNumber = ?1")
     Optional<User> findItemByPhoneNumber(String PhoneNumber);
@@ -31,7 +28,6 @@ public interface UserRepository extends JpaRepository<User,String> {
     Optional<User> findByBanAndId(@Param("Ban") String Ban, @Param("Id") long Id);
 
     @Query("select u from User u where u.Id = ?1")
-    static Optional<User> findById(long s) {
-        return null;
-    }
+     Optional<User> findById(long s);
+
 }

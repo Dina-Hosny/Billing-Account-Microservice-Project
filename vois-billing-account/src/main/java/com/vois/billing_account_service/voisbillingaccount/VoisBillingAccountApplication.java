@@ -24,7 +24,7 @@ public class VoisBillingAccountApplication {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
 				.paths(PathSelectors.any())
-				.apis(RequestHandlerSelectors.any()).build();
+				.apis(RequestHandlerSelectors.basePackage("com.vois.billing_account_service.voisbillingaccount.controllers")).build();
 	}
 
 

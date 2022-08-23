@@ -18,13 +18,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class ExceptionsHandling {
     @Autowired
-    private UserRepository subscriberRepository;
+    private UserRepository userRepository;
 
     private Pattern startWithAlphaPattern;
 
     private Pattern alphaNumericPattern;
-
-    private Pattern emailPattern;
 
     public ExceptionsHandling() {
         String startWithAlphaRe = "^[A-Za-z].*";
@@ -93,7 +91,7 @@ public class ExceptionsHandling {
     public UserRepository findByBanAndId(String ban, String Id) throws UserNotFoundExceptions, UnrelatedUserBanExceptions{
         verifyBan(ban);
 
-        User user = UserRepository.findById(Long.parseLong(Id)).orElseThrow(
+        User user = userRepository.findById(Long.parseLong(Id)).orElseThrow(
                 ()-> new UnrelatedUserBanExceptions(Id)
         );
 
@@ -113,8 +111,8 @@ public class ExceptionsHandling {
         verifyUsername(user.getUserName());
         verifyPhone(user.getPhoneNumber());
 
-        if (UserRepository.findById(user.getId()).isPresent());
-            throw new UserExistsExceptions("subscriber id", user.getId());
+        if (userRepository.findById(user.getId()).isPresent());
+            throw new UserExistsExceptions("subscriber id", String.valueOf(user.getId()));
 
     }
 }

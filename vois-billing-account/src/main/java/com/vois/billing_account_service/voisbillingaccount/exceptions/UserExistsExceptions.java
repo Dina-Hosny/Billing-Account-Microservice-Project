@@ -10,7 +10,4 @@ public class UserExistsExceptions extends RuntimeException{
     }
 
 
-    public UserExistsExceptions(String subscriber_id, long id) {
-        super(String.format("Already Found id duplicate value:%s,%s", subscriber_id, id));
-    }
 }

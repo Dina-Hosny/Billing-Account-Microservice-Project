@@ -29,20 +29,17 @@ public class UserService {
         return user;
     }
     public User createUser(User user) throws UserExistsExceptions {
-//        verifyBan(user.getBan());
-//        verifyUsername(user.getUserName());
-//        verifyPhone(user.getPhoneNumber());
 
-        if (UserRepository.findById(user.getId()).isPresent()) {
-            throw new UserExistsExceptions("User id", String.valueOf(user.getId()));
+        if (userRepository.findById(user.getId()).isPresent()) {
+            throw new UserExistsExceptions("Id", String.valueOf(user.getId()));
         }
 
-        if (UserRepository.findItemByUsername(user.getUserName()).isPresent()) {
-            throw new UserExistsExceptions("username", user.getUserName());
+        if (userRepository.findItemByUsername(user.getUserName()).isPresent()) {
+            throw new UserExistsExceptions("UserName", user.getUserName());
         }
 
         if (userRepository.findItemByPhoneNumber(user.getPhoneNumber()).isPresent()) {
-            throw new UserExistsExceptions("email", user.getPhoneNumber());
+            throw new UserExistsExceptions("PhoneNumber", user.getPhoneNumber());
         }
 
         return userRepository.save(user);
