@@ -25,6 +25,7 @@ Billing Account Microservice project using Java programming language that have 3
 - MVC concepts.
 - Swagger for viewing the endpoints’ outputs and testing the APIs.
 - PostgreSQL database for storing the users’ data.
+- HTTP Methods.
 
 ## How it Works?
 
